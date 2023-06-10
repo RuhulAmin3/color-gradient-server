@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Gradient = require("../../models/gradientSchema");
 const nodeHtmlToImage = require("node-html-to-image");
+
 router.get("/", async (req, res) => {
   try {
     const result = await Gradient.find();
@@ -55,7 +56,7 @@ router.delete("/:id", async (req, res) => {
     await Gradient.findByIdAndDelete(req.params.id);
   } catch (error) {
     console.log(error.message);
-    res.sendStatus(200); 
+    res.sendStatus(200);
   }
 });
 
